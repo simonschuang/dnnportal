@@ -15,8 +15,7 @@ import dnnport.scheduler  # noqa
 
 # Create Flask, Scheduler and SocketIO objects
 
-url_prefix = config_value('url_prefix')
-app = flask.Flask(__name__, static_url_path=url_prefix+'/static')
+app = flask.Flask(__name__, static_url_path='/static')
 app.config['DEBUG'] = True
 # Disable CSRF checking in WTForms
 app.config['WTF_CSRF_ENABLED'] = False
@@ -24,7 +23,7 @@ app.config['WTF_CSRF_ENABLED'] = False
 app.config['SECRET_KEY'] = os.urandom(12).encode('hex')
 app.url_map.redirect_defaults = False
 app.config['URL_PREFIX'] = url_prefix
-socketio = SocketIO(app, async_mode='gevent', path=url_prefix+'/socket.io')
+socketio = SocketIO(app, async_mode='gevent', path='/socket.io')
 app.config['store_cache'] = StoreCache()
 app.config['store_url_list'] = config_value('model_store')['url_list']
 scheduler = dnnport.scheduler.Scheduler(config_value('gpu_list'), True)

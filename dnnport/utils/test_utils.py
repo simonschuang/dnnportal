@@ -4,7 +4,7 @@ from __future__ import absolute_import
 import unittest
 
 from . import parse_version
-from digits import test_utils
+from dnnport import test_utils
 
 
 test_utils.skipIfNotFramework('none')

@@ -48,8 +48,8 @@ def main():
     print '               |_|  '
     print
 
-    import dnnport.config
-    import dnnport.log
+    #import dnnport.config
+    #import dnnport.log
     import dnnport.webapp
 
     try:
